@@ -19,6 +19,12 @@ public class IntList {
         System.out.println("Int: " + secondExample);
         System.out.println("Array: " + Arrays.toString(secondExampleToList));
         System.out.println("Back to int: " + secondExampleAsIntAgain);
+
+        int taskD = 9999;
+        int[] toList = intToList(taskD);
+        int[] addedOne = addOne(toList);
+        int number = listToInt(addedOne);
+        System.out.println("One added to 9999 equals: " + number);
     }
 
     //a
@@ -54,6 +60,10 @@ public class IntList {
 
     //d
     public static int[] addOne(int[] numbers){
-        return null;
+        int number = listToInt(numbers);
+        number += 1;
+        int[] result = intToList(number);
+
+        return result;
     }
 }
