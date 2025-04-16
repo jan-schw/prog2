@@ -1,3 +1,4 @@
+package task1;
 import task1.model.*;
 
 public class Main {
@@ -36,5 +37,8 @@ public class Main {
         System.out.println("Contains 18? " + five.contains(18));
 
         System.out.println(five.str());
+
+
+        
     }
 }
