@@ -14,13 +14,13 @@ public class Tree {
     public String str(){
         String inOrder = "";
 
-        if(left != null){
+        if(hasLeft()){
             inOrder += left.str() + " ";
         }
 
         inOrder += value;
 
-        if(right != null){
+        if(hasRight()){
             inOrder += " " + right.str();
         }
 
@@ -30,11 +30,31 @@ public class Tree {
     public boolean contains(int value){
 
         boolean result = this.value == value;
-        boolean inLeftSide = left != null ? left.contains(value) : false;
-        boolean inRightSide = right != null ? right.contains(value) : false;
+        boolean inLeftSide = hasLeft() ? left.contains(value) : false;
+        boolean inRightSide = hasRight() ? right.contains(value) : false;
         return result || inLeftSide || inRightSide;
     }
 
+    public void insertValue(int value){
+        if(!this.contains(value)){
+            if(this.value < value){
+                if(hasRight()){
+                    this.right.insertValue(value);
+                }
+                else{
+                    this.setRight(new Tree(value));
+                }
+            }
+            else{
+                if(hasLeft()){
+                    this.left.insertValue(value);
+                }
+                else{
+                    this.setLeft(new Tree(value));
+                }
+            }
+        }
+    }
 
     public int getValue() {
         return value;
@@ -54,5 +74,13 @@ public class Tree {
 
     public void setRight(Tree right) {
         this.right = right;
+    }
+
+    private boolean hasLeft(){
+        return this.left != null;
+    }
+
+    private boolean hasRight(){
+        return this.right != null;
     }
 }

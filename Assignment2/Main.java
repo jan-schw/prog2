@@ -22,5 +22,7 @@ public class Main {
 
         boolean contains = five.contains(1);
         System.out.println(contains);
+
+        five.insertValue(4);
     }
 }
