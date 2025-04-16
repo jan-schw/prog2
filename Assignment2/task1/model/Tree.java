@@ -11,6 +11,23 @@ public class Tree {
         this.value = input;
     }
 
+    public String str(){
+        String inOrder = "";
+
+        if(left != null){
+            inOrder += left.str() + " ";
+        }
+
+        inOrder += value;
+
+        if(right != null){
+            inOrder += " " + right.str();
+        }
+
+        return inOrder;
+    }
+
+
     public int getValue() {
         return value;
     }
