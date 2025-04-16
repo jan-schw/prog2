@@ -18,5 +18,9 @@ public class Main {
 
         String order = five.str();
         System.out.println(order);
+
+
+        boolean contains = five.contains(1);
+        System.out.println(contains);
     }
 }

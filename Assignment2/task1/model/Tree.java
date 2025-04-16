@@ -27,6 +27,14 @@ public class Tree {
         return inOrder;
     }
 
+    public boolean contains(int value){
+
+        boolean result = this.value == value;
+        boolean inLeftSide = left != null ? left.contains(value) : false;
+        boolean inRightSide = right != null ? right.contains(value) : false;
+        return result || inLeftSide || inRightSide;
+    }
+
 
     public int getValue() {
         return value;
