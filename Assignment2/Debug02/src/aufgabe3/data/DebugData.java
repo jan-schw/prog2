@@ -1,6 +1,6 @@
 package aufgabe3.data;
 
-import java.lang.Math;
+//Unnötigen Import entfernt
 
 // This class is representing a cartesian coordinate in a 2d space with double coordinates.
 public class DebugData {    //Klasse Sichtbarkeit public gegeben 
@@ -38,6 +38,9 @@ public class DebugData {    //Klasse Sichtbarkeit public gegeben
 }
 
 /*
+ * Zeile 3: Import von java.lang.Math entfernt. Ist nicht nötig, da java.lang.* immer automatisch importiert wird
+ * Fehlermeldung: /
+ * 
  * Zeile 6: Klasse Sichtbarkeit public gegeben
  * Fehlermeldung: The type DebugData is not visible
  * 
