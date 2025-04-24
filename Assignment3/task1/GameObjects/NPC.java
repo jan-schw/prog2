@@ -58,7 +58,7 @@ public class NPC {
 
     /**
      * Returns value of isCrouching
-     * {@link GameObjects.NPC.isCrouching} State if npc is currently crouching or not
+     * {@link GameObjects.NPC.isCrouching} is the state if npc is currently crouching or not
      * @return isCrouching
      */
     public boolean isCrouching() {
@@ -67,7 +67,7 @@ public class NPC {
 
     /**
      * Getter for xCoordinate
-     * {@link GameObjects.NPC.xCoordinate} Current x coordinate of the npc in the game
+     * {@link GameObjects.NPC.xCoordinate} is the current x coordinate of the npc in the game
      * @return xCoordinate
      */
     public int getxCoordinate() {
