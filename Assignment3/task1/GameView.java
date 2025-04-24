@@ -32,8 +32,53 @@ public class GameView {
     public static void main(String[] args) {
 
         GameView test = new GameView();
-        String res = test.str();
-        System.out.println(res);
+        test.play();
+    }
+
+    public void play(){
+        while(true){
+            //Print current game state
+            String currentGameState = this.str();
+            System.out.println(currentGameState);
+
+            //Check for end of game
+            int playerX = this.player.getxCoordinate();
+            GameObject[] currentField = this.getFieldAtIndex(playerX);
+
+            if(currentField[2].equals(GameObject.LAVA) || currentField[2].equals(GameObject.GOAL)){
+                System.out.println("END!");
+                break;
+            }
+
+            GameObject[] nextField = this.getFieldAtIndex(playerX + 1);
+
+            //Check for air obstacle
+            if(nextField[0].equals(GameObject.AIROBSTACLE) && !this.player.isCrouching()){
+                this.player.crouch();
+            }
+            //Check for lava
+            else if(nextField[2].equals(GameObject.LAVA)){
+                if(this.player.isCrouching()){
+                    this.player.standUp();
+                }
+                else{
+                    this.player.dashRight();
+                }
+            }
+            else{
+                this.player.walkRight();
+            }
+        }
+    }
+
+    public GameObject[] getFieldAtIndex(int index){
+        GameObject[] nextField = new GameObject[3];
+
+        for(int i = 0; i < 3; i++){
+            nextField[i] = this.game[i][index];
+        }
+        
+        return nextField;
     }
 
     public String str() {
@@ -50,7 +95,7 @@ public class GameView {
                         result += this.game[y][x].getSymbol();
                     }
                     else{
-                    result += 'P';
+                        result += 'P';
                     }
                     
                 } else {
