@@ -1,4 +1,4 @@
-package GameObjects;
+package task1.GameObjects;
 
 /**
  * Non-playable-character for the GameView class

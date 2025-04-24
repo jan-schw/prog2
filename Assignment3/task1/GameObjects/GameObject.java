@@ -1,4 +1,4 @@
-package GameObjects;
+package task1.GameObjects;
 
 /**
  * Different ingame objects for the GameView class

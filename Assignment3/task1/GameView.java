@@ -1,4 +1,6 @@
-import GameObjects.*;
+package task1;
+
+import task1.GameObjects.*;
 
 /**
  * This class provides multiple methods to play a small jump&run game
