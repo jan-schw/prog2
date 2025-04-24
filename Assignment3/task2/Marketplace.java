@@ -48,18 +48,29 @@ public class Marketplace {
             "Sandalen",
             10,
             first,
-            "Neue Sandalen schwarz. Festpreis!"
+            "Neue Sandalen schwarz. Festpreis!",
+            Category.OTHER
         );
 
         Item two = new Item(
             "Hut",
             100,
             second,
-            "Toller Hut. Keine Anfragen, wie 'was letzter Preis'."
+            "Toller Hut. Keine Anfragen, wie 'was letzter Preis'.",
+            Category.OTHER
+        );
+
+        Item three = new Item(
+            "Maus",
+            50,
+            second,
+            "Kabelgebunden, pflegeleicht",
+            Category.ELECTRONICS
         );
 
         first.addItem(one);
         second.addItem(two);
+        second.addItem(three);
         
         market.addUser(first);
         market.addUser(second);

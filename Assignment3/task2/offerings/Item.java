@@ -14,21 +14,25 @@ public class Item {
     private float price;
     private User owner;
     private String description;
+    private Category category;
 
-    public Item(String name, float price, User owner, String description) {
+
+    public Item(String name, float price, User owner, String description, Category category) {
         this.name = name;
         this.price = price;
         this.owner = owner;
         this.description = description;
+        this.category = category;
     }
 
     public String str() {
         return String.format(
-            "Item: %s; Price: %.2f, User: %s, Description: %s",
+            "Item: %s; Price: %.2f, User: %s, Description: %s, Category: %s",
             name,
             price,
             owner.getUsername(),
-            description
+            description,
+            category.str()
         );
     }
 
@@ -72,4 +76,7 @@ public class Item {
 		this.description = description;
 	}
 
+    public Category getCategory() {
+        return category;
+    }
 }
