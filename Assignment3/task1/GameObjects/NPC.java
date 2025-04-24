@@ -26,4 +26,12 @@ public class NPC {
             this.xCoordinate += 2;
         }
     }
+
+    public boolean isCrouching() {
+        return isCrouching;
+    }
+
+    public int getxCoordinate() {
+        return xCoordinate;
+    }
 }

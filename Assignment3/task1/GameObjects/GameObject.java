@@ -5,7 +5,7 @@ public enum GameObject {
     LAVA('L'),
     AIROBSTACLE('O'),
     EMPTY(' '),
-    GOAL('#');
+    GOAL('Z');
 
     private char symbol;
 
