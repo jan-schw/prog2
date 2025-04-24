@@ -137,7 +137,7 @@ public class Marketplace {
     }
 
     /**
-     * Removed a user from the marketplace
+     * Removes a user from the marketplace
      * Wasnt implemented in the Musterlösung
      *@param second user to be removed
      */
