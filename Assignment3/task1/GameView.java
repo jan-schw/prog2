@@ -1,10 +1,22 @@
 import GameObjects.*;
 
+/**
+ * This class provides multiple methods to play a small jump&run game
+ * Includes the current state of the game and uses multiple GameObjects to represent objects in the game
+ * 
+ * @author Jan Schweers
+ * @version 24.04.2025
+ */
 public class GameView {
 
+    /** Represents the current state of the game in a 2d array */
     private GameObject[][] game = new GameObject[20][3];
+    /** NPC object for playing the game */
     private NPC player;
 
+    /** 
+     * Constructor for game view
+     */
     public GameView() {
         player = new NPC();
         GameObject[] y2 = {
@@ -29,12 +41,20 @@ public class GameView {
         this.game = new GameObject[][] { y2, y1, y0 };
     }
 
+    /**
+     * A very fancy main method for testing and playing the game
+     * @param args who knows
+     */
     public static void main(String[] args) {
 
-        GameView test = new GameView();
-        test.play();
+        GameView game = new GameView();
+        game.play();
     }
 
+    /** 
+     * Method for playing the game
+     * Periodically prints the game state to the console
+     */
     public void play(){
         while(true){
             //Print current game state
@@ -71,6 +91,11 @@ public class GameView {
         }
     }
 
+    /**
+     * Returns the game field at the specified index
+     * @param index x value of the wanted field
+     * @return  Array of GameObjects containing the field at the wanted index
+     */
     public GameObject[] getFieldAtIndex(int index){
         GameObject[] nextField = new GameObject[3];
 
@@ -81,6 +106,10 @@ public class GameView {
         return nextField;
     }
 
+    /**
+     * Prints the current state of the game as a string
+     * @return String of the game state
+     */
     public String str() {
         String result = "";
 
