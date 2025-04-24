@@ -16,4 +16,14 @@ public class NPC {
     public void crouch(){
         this.isCrouching = true;
     }
+
+    public void walkRight(){
+        this.xCoordinate++;
+    }
+
+    public void dashRight(){
+        if(!isCrouching){
+            this.xCoordinate += 2;
+        }
+    }
 }
