@@ -46,7 +46,8 @@ public class GameView {
      * @param args who knows
      */
     public static void main(String[] args) {
-
+        //Packagestruktur sortiert die beiden Klassen die zum Spielen benötigt werden
+        //in das Extra-Package GameObjects, um das ganze Projekt übersichtlicher zu gestalten
         GameView game = new GameView();
         game.play();
     }
