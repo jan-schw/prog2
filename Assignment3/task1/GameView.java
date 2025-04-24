@@ -41,8 +41,18 @@ public class GameView {
 
         for (int y = 0; y < 3; y++) {
             for (int x = 0; x < 20; x++) {
+
+                //Printing the player
                 if (x == this.player.getxCoordinate() && y != 2) {
+
+                    //Dont print player in air if crouching
+                    if(y == 0 && this.player.isCrouching()){
+                        result += this.game[y][x].getSymbol();
+                    }
+                    else{
                     result += 'P';
+                    }
+                    
                 } else {
                     result += this.game[y][x].getSymbol();
                 }
