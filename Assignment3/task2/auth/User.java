@@ -69,7 +69,7 @@ public class User {
                 continue;
             }
             
-            res += this.items[i].str();
+            res += this.items[i].str() + "\n";
         }
 
         return res;
