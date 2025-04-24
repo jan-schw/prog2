@@ -29,15 +29,17 @@ public class Marketplace {
         String res = "";
         
         for(User user: this.users) {
-            res += user.getUsername() + " offers:\n";
+            if(user != null){
+                res += user.getUsername() + " offers:\n";
 
-            Item[] items = user.getItems();
-            for(Item item: items){
-                if(item.getCategory().equals(category)){
-                    res += item.str() + "\n";
+                Item[] items = user.getItems();
+                for(Item item: items){
+                    if(item != null && item.getCategory().equals(category)){
+                        res += item.str() + "\n";
+                    }
                 }
+                res += "\n\n";
             }
-            res += "\n\n";
         }
 
         return res;
@@ -94,12 +96,12 @@ public class Marketplace {
         market.addUser(second);
 
 
-        System.out.println(market.str());
+        //System.out.println(market.str());
 
-        one.setPrice(50, first);
-        market.removeUser(second);
-
-        System.out.println(market.str());
+        //one.setPrice(50, first);
+        //market.removeUser(second);
+        System.out.println(market.filterMarket(Category.OTHER));
+        //System.out.println(market.str());
         
     }
 
