@@ -25,6 +25,24 @@ public class Marketplace {
         return res;
     }
 
+    public String filterMarket(Category category){
+        String res = "";
+        
+        for(User user: this.users) {
+            res += user.getUsername() + " offers:\n";
+
+            Item[] items = user.getItems();
+            for(Item item: items){
+                if(item.getCategory().equals(category)){
+                    res += item.str() + "\n";
+                }
+            }
+            res += "\n\n";
+        }
+
+        return res;
+    }
+
     public boolean addUser(User user) {
         for (int i = 0; i < this.users.length; i++) {
             if(this.users[i] == null) {
