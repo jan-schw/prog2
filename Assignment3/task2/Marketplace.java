@@ -3,13 +3,26 @@ package task2;
 import task2.auth.*;
 import task2.offerings.*;
 
+/**
+ * This class represents a marketplace and manages all the users and items in it
+ * Users can have multiple items they offer so sell
+ * @author Jan Schweers
+ * @version 24.04.2025
+ */
 public class Marketplace {
+    /** List of all the users in the marketplace */
     private User[] users;
 
+    /** Constructor for Marketplace, initializes array */
     public Marketplace() {
         this.users = new User[10];
     }
 
+    /**
+     * Returns string representation of the marketplace
+     * Includes all users with their items
+     * @return string representation
+     */
     public String str() {
         String res = "";
         
@@ -25,6 +38,11 @@ public class Marketplace {
         return res;
     }
 
+    /**
+     * Returns a string representation of the marketplace for a single category of item
+     * @param category category for the filtering
+     * @return string representation of all offered items of the chosen category
+     */
     public String filterMarket(Category category){
         String res = "";
         
@@ -45,6 +63,12 @@ public class Marketplace {
         return res;
     }
 
+    /**
+     * Adds a user to the marketplace
+     * Only if there is still space
+     * @param user new user to be added
+     * @return returns true if successfull
+     */
     public boolean addUser(User user) {
         for (int i = 0; i < this.users.length; i++) {
             if(this.users[i] == null) {
@@ -57,6 +81,10 @@ public class Marketplace {
         return false;
     }
 
+    /**
+     * Main method for testing and running the marketplace
+     * @param args sound of someone taking an arrow to the knee
+     */
     public static void main(String[] args) {
         // Main Methode darf auch in Main-Klasse sein.
         Marketplace market = new Marketplace();
@@ -96,15 +124,23 @@ public class Marketplace {
         market.addUser(second);
 
 
-        //System.out.println(market.str());
+        System.out.println(market.str());
 
-        //one.setPrice(50, first);
+        one.setPrice(50, first);
         //market.removeUser(second);
-        System.out.println(market.filterMarket(Category.OTHER));
-        //System.out.println(market.str());
         
+        System.out.println(market.str());
+
+        System.out.println(market.filterMarket(Category.OTHER));
+
+        System.out.println(market.filterMarket(Category.ELECTRONICS));
     }
 
+    /**
+     * Removed a user from the marketplace
+     * Wasnt implemented in the Musterlösung
+     *@param second user to be removed
+     */
     private void removeUser(User second) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'removeUser'");
