@@ -48,3 +48,18 @@ class Debug {
     }
   }
 }
+
+/*
+ * Zeile 18: Operator.ADD zu ADD geändert. Hier wird nicht der Typ benötigt, sondern nur der Wert des enums
+ *  * 
+ * Zeile 20: Operator.SUBTRACT zu SUBTRACT geändert. Grund: s.o.
+ *  * 
+ * Zeile 22: Operator.MULTIPLY zu MULTIPLY geändert. Grund: s.o.
+ *  * 
+ * Zeile 24: Operator.DIVIDE zu DIVIDE geändert. Grund: s.o.
+ * 
+ * Zeile 35: Array-Größe auf 4 reduziert, das reicht für die Operatoren und führt nicht zu NullPointern
+ * 
+ * Zeile 43: i und i+1 getauscht, damit es nicht zu einer Division durch 0 kommt
+ * 
+ */
