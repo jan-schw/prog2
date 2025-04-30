@@ -44,6 +44,10 @@ public class Item {
         this.category = category;
     }
 
+    public Item(){
+        
+    }
+
     /**
      * Returns a string representation of the object.
      * 
