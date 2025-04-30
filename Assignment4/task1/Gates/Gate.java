@@ -1,8 +1,12 @@
-package task1;
+package task1.Gates;
 
 public class Gate {
 
     private String symbol;
+
+    public Gate(String symbol){
+        this.symbol = symbol;
+    }
 
     public boolean evaluate(boolean a, boolean b) {
         return false;
@@ -31,5 +35,13 @@ public class Gate {
 
     private String boolToString(boolean input) {
         return input ? "1" : "0";
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 }
