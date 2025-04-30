@@ -21,6 +21,9 @@ public class Main {
                 (result[0] ? "1" : "0"), (result[1] ? "1" : "0"));
 
         System.out.println(answer);
+
+        adder.info();
+
         scanner.close();
     }
 }
