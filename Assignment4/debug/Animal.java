@@ -12,7 +12,7 @@ public class Animal {
     this.arms_ = arms;
   }
 
-  Animal(String name) {
+  public Animal(String name) {    //Konstruktor public gemacht, damit die Unterklassen ihn nutzen können
     this(name, 0, 0);
   }
 
@@ -34,3 +34,7 @@ public class Animal {
     return String.format("%s is an animal with %d legs and %d arms.", this.getName(), this.getLegs(), this.getArms());
   }
 }
+
+/*
+ * Zeile 15: Konstruktor public gemacht, damit die Unterklassen ihn nutzen können
+ */

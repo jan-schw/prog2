@@ -7,11 +7,9 @@ public class Monkey extends Animal {
     super(name);
   }
 
-
-  @Override
-  public String getName() {
-    return super.name_;
-  }
+  //Override von getName gelöscht. Hier kann einfach die Methode der Basisklasse verwendet werden
+  //Gilt theoretisch auch für die anderen Overrides. Eigentlich kann der andere Konstruktor von Animal verwendet werden,
+  //dann werden alle Overrides überflüssig
 
   @Override
   public int getArms() {
@@ -28,3 +26,7 @@ public class Monkey extends Animal {
     return String.format("%s is a monkey with %d legs and %d arms.", this.getName(), this.getLegs(), this.getArms());
   }
 }
+
+/*
+ * Zeile 10: Override von getName gelöscht. Hier kann einfach die Methode der Basisklasse verwendet werden
+ */
