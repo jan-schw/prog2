@@ -1,5 +1,7 @@
 package task2;
 
+import java.util.Scanner;
+
 import task2.auth.*;
 import task2.offerings.*;
 
@@ -17,13 +19,43 @@ public class Marketplace {
     private User[] users;
 
     /**
-     * Constructs a marketplace object with 
+     * Constructs a marketplace object with
      * maximum 10 users.
      * 
      * @author Kevin Schumann
      */
     public Marketplace() {
         this.users = new User[10];
+    }
+
+    public User login() {
+        Scanner scanner = new Scanner(System.in);
+
+        for (int i = 0; i < 3; i++) {
+            System.out.println("Benutzername?");
+            String username = scanner.nextLine();
+            System.out.println("Passwort?");
+            String password = scanner.nextLine();
+
+            for (User current : this.users) {
+                if(current != null){
+                    boolean matchingUsernameFound = current.getUsername().compareTo(username) == 0;
+                    boolean matchingPasswordFound = current.getPassword().compareTo(password) == 0;
+    
+                    if (matchingUsernameFound && matchingPasswordFound) {
+                        System.out.println("Richtige Eingabe!");
+                        scanner.close();
+                        return current;
+                    }
+
+                }
+            }
+            int remainingTries = 2 - i;
+            System.out.println(String.format("Falsche Eingabe! Noch %d Versuche über", remainingTries));
+        }
+        System.exit(0);
+        scanner.close();
+        return null;
     }
 
     /**
@@ -34,12 +66,12 @@ public class Marketplace {
      */
     public String str() {
         String res = "";
-        
-        for(int i = 0; i < this.users.length; i++) {
-            if(this.users[i] == null) {
+
+        for (int i = 0; i < this.users.length; i++) {
+            if (this.users[i] == null) {
                 continue;
             }
-            
+
             res += this.users[i].str();
             res += "\n\n";
         }
@@ -56,11 +88,11 @@ public class Marketplace {
      */
     public boolean addUser(User user) {
         for (int i = 0; i < this.users.length; i++) {
-            if(this.users[i] == null) {
+            if (this.users[i] == null) {
                 this.users[i] = user;
                 return true;
             }
-            
+
         }
 
         return false;
@@ -72,18 +104,19 @@ public class Marketplace {
      * in the str() function.
      * 
      * @author Kevin Schumann
-     * @param category Category that shall be printed. Can be null. If null all items will be printed.
+     * @param category Category that shall be printed. Can be null. If null all
+     *                 items will be printed.
      * @return String of all the items that belong to the given category.
      */
     public String filterMarket(Category category) {
         // this if was not demanded by the task
-        if(category == null) {
+        if (category == null) {
             return this.str();
         }
 
         String res = "";
         for (int i = 0; i < users.length; i++) {
-            if(this.users[i] == null) {
+            if (this.users[i] == null) {
                 continue;
             }
 
@@ -103,7 +136,7 @@ public class Marketplace {
 
         return res;
     }
-    
+
     public static void main(String[] args) {
         // Main Methode darf auch in Main-Klasse sein.
         Marketplace market = new Marketplace();
@@ -112,30 +145,28 @@ public class Marketplace {
         User second = new User("Maxine", "4321");
 
         Item one = new Item(
-            "Sandalen",
-            10,
-            first,
-            "Neue Sandalen schwarz. Festpreis!",
-            Category.OTHER
-        );
+                "Sandalen",
+                10,
+                first,
+                "Neue Sandalen schwarz. Festpreis!",
+                Category.OTHER);
 
         Item two = new Item(
-            "Hut",
-            100,
-            second,
-            "Toller Hut. Keine Anfragen, wie 'was letzter Preis'.",
-            Category.OTHER
-        );
+                "Hut",
+                100,
+                second,
+                "Toller Hut. Keine Anfragen, wie 'was letzter Preis'.",
+                Category.OTHER);
 
         first.addItem(one);
         second.addItem(two);
-        
+
         market.addUser(first);
         market.addUser(second);
 
-        System.out.println(market.filterMarket(Category.OTHER));
-        System.out.println(market.filterMarket(Category.ELECTRONICS));
-        System.out.println(market.filterMarket(null));
+        market.login();
+        // System.out.println(market.filterMarket(Category.OTHER));
+        // System.out.println(market.filterMarket(Category.ELECTRONICS));
+        // System.out.println(market.filterMarket(null));
     }
 }
-
