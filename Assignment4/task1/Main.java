@@ -1,23 +1,26 @@
 package task1;
 
-import task1.Gates.AndGate;
-import task1.Gates.Gate;
-import task1.Gates.NotGate;
-import task1.Gates.OrGate;
-import task1.Gates.XorGate;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Gate not = new NotGate();
-        Gate or = new OrGate();
-        Gate and = new AndGate();
-        Gate xor = new XorGate();
+        Scanner scanner = new Scanner(System.in);
 
-        not.table();
-        or.table();
-        and.table();
-        xor.table();
+        System.out.println("Geben Sie den ersten boolean Wert an: ");
+        boolean firstBool = scanner.nextBoolean();
+
+        System.out.println("Geben Sie den zweiten boolean Wert an: ");
+        boolean secondBool = scanner.nextBoolean();
+
+        HalfAdder adder = new HalfAdder();
+        boolean[] result = adder.add(firstBool, secondBool);
+
+        String answer = String.format("Die Summe lautet %s, der Übertrag beträgt %s",
+                (result[0] ? "1" : "0"), (result[1] ? "1" : "0"));
+
+        System.out.println(answer);
+        scanner.close();
     }
 }
