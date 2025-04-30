@@ -14,7 +14,7 @@ public class Gate {
 
     public void table() {
         String finalPrint = "";
-        String header = String.format(" A | B | Y=A%sB \n", this.symbol);
+        String header = String.format(" A | B | Y= A %s B \n", this.symbol);
         String separator = "___|___|___\n";
         finalPrint += header + separator;
 
