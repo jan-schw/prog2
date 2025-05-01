@@ -139,26 +139,26 @@ public class Marketplace {
     }
 
     private String getItemNameFromConsole(){
-        System.out.print("Name des Items?");
+        System.out.println("Name des Items?");
         String name = this.scanner.next();
         return name;
     }
 
     private float getItemPriceFromConsole(){
-        System.out.print("Preis des Items?");
+        System.out.println("Preis des Items?");
         float price = this.scanner.nextFloat();
         return price;
     }
 
     private Optional<User> tryGetItemOwnerFromConsole(){
-        System.out.print("Besitzer des Items?");
+        System.out.println("Besitzer des Items?");
         String owner = this.scanner.next();
         Optional<User> foundUser = Arrays.asList(users).stream().filter(u -> u != null).filter(x -> x.getUsername().equals(owner)).findFirst();
         return foundUser;
     }
 
     private String getItemDescriptionFromConsole(){
-        System.out.print("Beschreibung des Items?");
+        System.out.println("Beschreibung des Items?");
         String description = this.scanner.next();
         return description;
     }
