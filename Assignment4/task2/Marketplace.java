@@ -198,12 +198,6 @@ public class Marketplace {
         return null;
     }
 
-    /**
-     * Returns a string representation of the marketplace
-     * 
-     * @author Kevin Schumann
-     * @return String representation of the item.
-     */
     public String str() {
         String res = "";
 
@@ -219,13 +213,6 @@ public class Marketplace {
         return res;
     }
 
-    /**
-     * Adds an user to the marketplace.
-     * 
-     * @author Kevin Schumann
-     * @param user User that shall be added.
-     * @return False if user limit has been reached, else true.
-     */
     public boolean addUser(User user) {
         for (int i = 0; i < this.users.length; i++) {
             if (this.users[i] == null) {
@@ -238,16 +225,6 @@ public class Marketplace {
         return false;
     }
 
-    /**
-     * Returns string of all items that belong to as the given category.
-     * Iff category is null all items will be printed like
-     * in the str() function.
-     * 
-     * @author Kevin Schumann
-     * @param category Category that shall be printed. Can be null. If null all
-     *                 items will be printed.
-     * @return String of all the items that belong to the given category.
-     */
     public String filterMarket(Category category) {
         // this if was not demanded by the task
         if (category == null) {
@@ -278,7 +255,6 @@ public class Marketplace {
     }
 
     public static void main(String[] args) {
-        // Main Methode darf auch in Main-Klasse sein.
         Marketplace market = new Marketplace();
 
         User first = new User("Max", "1234");
