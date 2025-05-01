@@ -45,28 +45,29 @@ public class Marketplace {
         }
     }
 
+    private void showItemsOfCategory(){
+        Category chosenCategory = getCategoryFromConsole();
+        System.out.println(filterMarket(chosenCategory));
+    }
+
+    private void exitProgram(){
+        System.out.println("Programm wird beendet");
+        System.exit(0);
+    }
+
     private void addNewItem(){
-        User user = null;
-        System.out.print("Name des Items?");
-        String name = this.scanner.next();
-        System.out.print("Preis des Items?");
-        float price = this.scanner.nextFloat();
+        System.out.println("Neues Item hinzufügen!");
+        String name = this.getItemNameFromConsole();
+        float price = this.getItemPriceFromConsole();
+        String description = this.getItemDescriptionFromConsole();
+        Category category = this.getCategoryFromConsole();
 
-        System.out.print("Besitzer des Items?");
-        String owner = this.scanner.next();
-        Optional<User> foundUsers = Arrays.asList(users).stream().filter(u -> u != null).filter(x -> x.getUsername().equals(owner)).findFirst();
-
-        if(foundUsers.isPresent()){
-            user = foundUsers.get();
-        }
-        else{
+        Optional<User> foundUser = this.tryGetItemOwnerFromConsole();
+        if(!foundUser.isPresent()){
             System.out.println("Benutzer nicht gefunden");
             return;
         }
-        System.out.print("Beschreibung des Items?");
-        String description = this.scanner.next();
-
-        Category category = getCategoryFromInput();
+        User user = foundUser.get();
 
         Item newItem = new Item(name, price, user, description, category);
 
@@ -80,13 +81,13 @@ public class Marketplace {
     }
 
     private void deleteItem(){
-        System.out.println("Name des zu löschenden Items?");
-        String toBeDeleted = scanner.next();
+        System.out.println("Item löschen!");
+        String toBeDeleted = this.getItemNameFromConsole();
         boolean success = false;
-        List<User> existingUsers = Arrays.asList(users).stream().filter(u -> u != null).toList();
+        List<User> existingUsers = this.getExistingUsers();
         for(User current: existingUsers){
             Item[] items = current.getItems();
-            Optional<Item> temp = Arrays.asList(items).stream().filter(i -> i != null && i.getName().equals(toBeDeleted)).findFirst();
+            Optional<Item> temp = tryToFindItem(toBeDeleted, items);
             if(temp.isPresent()){
                 success = current.removeItem(temp.get());
             }
@@ -100,35 +101,69 @@ public class Marketplace {
     }
 
     private void editItem(){
-        System.out.println("Name des zu bearbeitenden Items?");
-        String toBeEdited = scanner.next();
-        Item item = new Item();
+        System.out.println("Item bearbeiten!");
+        String toBeEdited = this.getItemNameFromConsole();
+        Item item = null;
         User owner = null;
-        List<User> existingUsers = Arrays.asList(users).stream().filter(u -> u != null).toList();
+        List<User> existingUsers = this.getExistingUsers();
         for(User current: existingUsers){
             Item[] items = current.getItems();
-            Optional<Item> temp = Arrays.asList(items).stream().filter(i -> i != null && i.getName().equals(toBeEdited)).findFirst();
+            Optional<Item> temp = this.tryToFindItem(toBeEdited, items);
             if(temp.isPresent()){
                 owner = current;
                 item = temp.get();
             }
         }
 
-        System.out.println("Was soll der neue Name sein?");
-        String newName = this.scanner.next();
+        if(owner == null || item == null){
+            System.out.println("Editieren nicht möglich");
+            return;
+        }
+
+        String newName = this.getItemNameFromConsole();
         item.setName(newName, owner);
 
-        System.out.println("Was soll die neue Beschreibung sein?");
-        String newDescription = this.scanner.next();
+        String newDescription = this.getItemDescriptionFromConsole();
         item.setDescription(newDescription, owner);
         	
-        System.out.println("Was soll der neue Preis sein?");
-        float newPrice = this.scanner.nextFloat();
+        float newPrice = this.getItemPriceFromConsole();
         item.setPrice(newPrice, owner);
-
     }
 
-    private Category getCategoryFromInput(){
+    private List<User> getExistingUsers(){
+        return Arrays.asList(this.users).stream().filter(u -> u != null).toList();
+    }
+
+    private Optional<Item> tryToFindItem(String itemName, Item[] items){
+        return Arrays.asList(items).stream().filter(i -> i != null && i.getName().equals(itemName)).findFirst();
+    }
+
+    private String getItemNameFromConsole(){
+        System.out.print("Name des Items?");
+        String name = this.scanner.next();
+        return name;
+    }
+
+    private float getItemPriceFromConsole(){
+        System.out.print("Preis des Items?");
+        float price = this.scanner.nextFloat();
+        return price;
+    }
+
+    private Optional<User> tryGetItemOwnerFromConsole(){
+        System.out.print("Besitzer des Items?");
+        String owner = this.scanner.next();
+        Optional<User> foundUser = Arrays.asList(users).stream().filter(u -> u != null).filter(x -> x.getUsername().equals(owner)).findFirst();
+        return foundUser;
+    }
+
+    private String getItemDescriptionFromConsole(){
+        System.out.print("Beschreibung des Items?");
+        String description = this.scanner.next();
+        return description;
+    }
+
+    private Category getCategoryFromConsole(){
         System.out.println("Welche Kategorie?");
         System.out.println("1. Furniture");
         System.out.println("2. Electronics");
@@ -146,17 +181,6 @@ public class Marketplace {
             default:
                 return null;
         }
-    }
-
-    private void showItemsOfCategory(){
-        Category chosenCategory = getCategoryFromInput();
-        System.out.println(filterMarket(chosenCategory));
-
-    }
-
-    private void exitProgram(){
-        System.out.println("Programm wird beendet");
-        System.exit(0);
     }
 
     private void printOptions(){
