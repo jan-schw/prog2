@@ -8,32 +8,17 @@ import java.util.Scanner;
 import task2.auth.*;
 import task2.offerings.*;
 
-/**
- * This class represents a digital marketplace.
- * 
- * Items are offered on this marketplace by user,
- * which can be added to this marketplace.
- * 
- * @author Kevin Schumann
- * @version 23/04/2024
- */
 public class Marketplace {
-    // users of this marketplace
     private Scanner scanner;
     private User[] users;
 
-    /**
-     * Constructs a marketplace object with
-     * maximum 10 users.
-     * 
-     * @author Kevin Schumann
-     */
     public Marketplace() {
         this.users = new User[10];
         this.scanner = new Scanner(System.in);
     }
 
     public void cli(){
+        //loop runs while as long as exitProgram is not called
         while(true){
             printOptions();
             int chosenOption = this.scanner.nextInt();
@@ -58,8 +43,6 @@ public class Marketplace {
                     break;
             }
         }
-        
-
     }
 
     private void addNewItem(){
