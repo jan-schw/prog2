@@ -1,3 +1,5 @@
+package States;
+
 public interface State {
     public State transition(Action action);
 

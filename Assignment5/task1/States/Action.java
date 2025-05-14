@@ -1,4 +1,4 @@
-
+package States;
 public enum Action{
     A('A'),
     B('B');
