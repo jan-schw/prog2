@@ -7,8 +7,7 @@ public class TreasureIsland implements State{
 
     @Override
     public State transition(Action action) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'transition'");
+        return new TreasureIsland();
     }
 
     @Override

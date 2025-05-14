@@ -7,8 +7,14 @@ public class DeadMansIsland implements State{
 
     @Override
     public State transition(Action action) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'transition'");
+        State next = null;
+        if(action == Action.A){
+            next = new MusketHill();
+        }
+        else if(action == Action.B){
+            next = new ShipwreckBay();
+        }
+        return next;
     }
 
     @Override

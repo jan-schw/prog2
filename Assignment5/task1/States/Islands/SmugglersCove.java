@@ -7,8 +7,14 @@ public class SmugglersCove implements State{
 
     @Override
     public State transition(Action action) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'transition'");
+        State next = null;
+        if(action == Action.A){
+            next = new PiratesIsland();
+        }
+        else if(action == Action.B){
+            next = new TreasureIsland();
+        }
+        return next;
     }
 
     @Override
