@@ -13,14 +13,12 @@ public class TreasureIsland implements State{
 
     @Override
     public String str() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'str'");
+        return "Treasure Island";
     }
 
     @Override
     public String info() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'info'");
+        return "No transitions available, goal reached!";
     }
     
 }

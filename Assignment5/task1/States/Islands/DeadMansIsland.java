@@ -13,14 +13,12 @@ public class DeadMansIsland implements State{
 
     @Override
     public String str() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'str'");
+        return "Dead Man's Island";
     }
 
     @Override
     public String info() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'info'");
+        return "Aktion A -> Musket Hill; Aktion B -> Shipwreck Bay";
     }
     
 }

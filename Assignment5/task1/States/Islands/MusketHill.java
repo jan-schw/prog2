@@ -13,14 +13,12 @@ public class MusketHill implements State{
 
     @Override
     public String str() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'str'");
+        return "Musket Hill";
     }
 
     @Override
     public String info() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'info'");
+        return "Aktion A -> Pirates' Island; Aktion B -> Mutineer's Island";
     }
     
 }
