@@ -19,12 +19,12 @@ public class DeadMansIsland implements State{
 
     @Override
     public String str() {
-        return "Dead Man's Island";
+        return "Dead Man's Island!";
     }
 
     @Override
     public String info() {
-        return "Aktion A -> Musket Hill; Aktion B -> Shipwreck Bay";
+        return this.str() + " Aktion A -> Musket Hill; Aktion B -> Shipwreck Bay";
     }
     
 }

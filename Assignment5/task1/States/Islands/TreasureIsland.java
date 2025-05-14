@@ -12,12 +12,12 @@ public class TreasureIsland implements State{
 
     @Override
     public String str() {
-        return "Treasure Island";
+        return "Treasure Island!";
     }
 
     @Override
     public String info() {
-        return "No transitions available, goal reached!";
+        return this.str() + " No transitions available, goal reached!";
     }
     
 }

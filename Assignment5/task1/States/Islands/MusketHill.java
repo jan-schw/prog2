@@ -19,12 +19,12 @@ public class MusketHill implements State{
 
     @Override
     public String str() {
-        return "Musket Hill";
+        return "Musket Hill!";
     }
 
     @Override
     public String info() {
-        return "Aktion A -> Pirates' Island; Aktion B -> Mutineer's Island";
+        return this.str() + " Aktion A -> Pirates' Island; Aktion B -> Mutineer's Island";
     }
     
 }

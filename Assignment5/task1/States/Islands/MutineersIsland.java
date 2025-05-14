@@ -19,12 +19,12 @@ public class MutineersIsland implements State{
 
     @Override
     public String str() {
-        return "Mutineers' Island";
+        return "Mutineers' Island!";
     }
 
     @Override
     public String info() {
-        return "Aktion A -> Smugglers' Cove; Aktion B -> Dead Man's Island";
+        return this.str() + " Aktion A -> Smugglers' Cove; Aktion B -> Dead Man's Island";
     }
     
 }
